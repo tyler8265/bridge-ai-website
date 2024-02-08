@@ -1,0 +1,84 @@
+body{
+  background-image: url(gold-star-memorial-bridge-chbd.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+}
+.login-container{
+  display: flex;
+  border-radius: 70px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+}
+.login-container *{
+    color: black;
+    font-family: 'Poppins',sans-serif;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.login-header{
+    display: flex;
+    text-align: center;
+    color: white;
+    font-size: 75px;
+    font-weight: 500;
+    line-height: 42px;
+    margin-bottom: 75px;
+    align-items: center;
+    margin-top: -40px;
+}
+.login-input-one,
+.login-input-two{
+    height: 50px;
+    width: 400px;
+    height: 75px;
+    background-color: rgba(153, 153, 153, 0.554);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 3px;
+    padding: 0 20px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: black;
+}
+.login-input-one{
+  margin-bottom: 50px;
+}
+.login-input-two{
+  margin-bottom: 75px;
+}
+.login-input-one::placeholder,
+.login-input-two::placeholder{
+  color: black;
+  font-family: 'Poppins',sans-serif;
+  font-weight: bold;
+}
+.enter-button{
+  margin-top: 20px;
+  width: 100%;
+  padding: 0px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 16px 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.enter-button:active{
+  background-color: black;
+  color: white;
+}
+.bridge-logo{
+  height: 100px;
+  width: 100px;
+}

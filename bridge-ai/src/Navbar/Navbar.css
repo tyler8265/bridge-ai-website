@@ -42,15 +42,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10px;
-  margin-right: 10px
+  margin-left: 20px;
+  margin-right: 20px
 }
 .middle-section{
     flex: 1;
     max-width: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: -10px;
 }
 .search-icon{
   height: 25px;
@@ -68,16 +68,19 @@
 }
 .search-button,
 .hamburger-button,
-.info-icon{
+.info-button{
   cursor: pointer;
 }
 .search-button:active{
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.30);
 }
-.hamburger-button{
+.hamburger-button,
+.info-button{
   background-color: transparent;
   border-color: transparent;
-  margin-top: 3px;
+}
+.info-button{
+  margin-left: -9px;
 }
 .drop-down-menu {
   width: 160px;
@@ -111,4 +114,32 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+}
+.tool-tip{
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.info-button .tool-tip{
+  bottom: -15px;
+  left: 50px;
+}
+.hamburger-button .tool-tip{
+  bottom: -15px;
+  left: -5px;
+}
+.info-button:hover .tool-tip,
+.hamburger-button:hover .tool-tip{
+  opacity: 1;
+}
+.links{
+  text-decoration: none;
+  color: black;
 }

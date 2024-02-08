@@ -1,7 +1,6 @@
 import './App.css';
 import MapComponent from './components/MapComponent';
 import Navbar from './Navbar/Navbar'
-import About from './components/AboutProject';
 
 function App() {
   return (
