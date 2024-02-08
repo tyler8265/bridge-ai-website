@@ -64,16 +64,19 @@
 }
 .search-button,
 .hamburger-button,
-.info-icon{
+.info-button{
   cursor: pointer;
 }
 .search-button:active{
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.30);
 }
-.hamburger-button{
+.hamburger-button,
+.info-button{
   background-color: transparent;
   border-color: transparent;
-  margin-top: 3px;
+}
+.info-button{
+  margin-left: -9px;
 }
 .drop-down-menu {
   width: 160px;

@@ -29,7 +29,11 @@ const Navbar = () => {
                     <div className='bridge-list'><button className='bridge-list-button'>Bridge List</button></div>
                     <div className='log-out'><button className='log-out-button'>Log Out</button></div>
                 </div>
-                <img src={info} className='info-icon' alt='info' onClick={closeMenu} />
+                <div>
+                    <button className='info-button'>
+                        <img src={info} className='info-icon' alt='info' onClick={closeMenu} />
+                    </button>
+                </div>
             </div>
             <div className='middle-section'>
                 <input className='search-box' placeholder='Search Here...' />
