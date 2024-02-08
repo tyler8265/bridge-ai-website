@@ -93,9 +93,8 @@
 }
 
 .hide-drop-down-menu {
-  visibility: hidden;
-  transform: translateY(-100%); /* Adjusted transform property */
-  opacity: 0;
+  transform: translateY(-150%); /* Adjusted transform property */
+  opacity: 1;
 }
 
 .how-to-page-button,
