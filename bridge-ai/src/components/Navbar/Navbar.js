@@ -22,7 +22,6 @@ const Navbar = () => {
                 <div>
                     <button className='hamburger-button' onClick={toggleMenu}>
                         <img src={hamburger} className='hamburger-icon' alt='hamburger' />
-                        <div className='tool-tip'>Drop Down Menu</div>
                     </button>
                 </div>
                 <div className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
