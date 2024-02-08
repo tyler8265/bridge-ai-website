@@ -46,7 +46,7 @@
     max-width: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: -10px;
 }
 .search-icon{
   height: 25px;
@@ -134,4 +134,8 @@
 .info-button:hover .tool-tip,
 .hamburger-button:hover .tool-tip{
   opacity: 1;
+}
+.links{
+  text-decoration: none;
+  color: black;
 }

@@ -28,7 +28,7 @@ const Navbar = () => {
                 <div className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
                     <div className='how-to-page'><button className='how-to-page-button'>How-To-Page</button></div>
                     <div className='bridge-list'><button className='bridge-list-button'>Bridge List</button></div>
-                    <div className='log-out'><button className='log-out-button'>Log Out</button></div>
+                    <div className='log-out'><button className='log-out-button'><a href='/LoginPage' className='links'>Log Out</a></button></div>
                 </div>
                 <div>
                     <button className='info-button'>
