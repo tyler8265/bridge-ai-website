@@ -29,9 +29,12 @@
     border-radius: 2px;
     box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
     width: 0;
-    align-items: center;
+    align-items: left;
     font-family: roboto, arial;
     font-size: 16px;
+    opacity: 0.9;
+    backdrop-filter: blur(2px) brightness(60%) contrast(40%);
+    -webkit-backdrop-filter: blur(2px) brightness(60%) contrast(40%);
 }
 .left-section{
   width: 78px;
@@ -40,6 +43,7 @@
   align-items: center;
   justify-content: space-between;
   margin-left: 10px;
+  margin-right: 10px
 }
 .middle-section{
     flex: 1;
