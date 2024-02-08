@@ -1,6 +1,6 @@
 import './App.css';
 import MapComponent from './MapComponent';
-import Navbar from './bars/Navbar'
+import Navbar from './Navbar/Navbar'
 
 function App() {
   return (
