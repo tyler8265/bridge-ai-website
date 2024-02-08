@@ -13,10 +13,11 @@ class MapComponent extends Component {
         google={this.props.google}
         zoom={14}
         style={mapStyles}
-        initialCenter={{ lat: 37.7749, lng: -122.4194 }} // Default center coordinates (San Francisco)
+        initialCenter={{ lat: 41.3644, lng: -72.0864 }}
+        disableDefaultUI={true}  // Disable the default UI
       >
         {/* Add markers or other map components as needed */}
-        <Marker position={{ lat: 37.7749, lng: -122.4194 }} />
+        <Marker position={{ lat: 41.3644, lng: -72.0864 }} />
       </Map>
     );
   }
