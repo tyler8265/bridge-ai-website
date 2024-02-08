@@ -39,7 +39,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .middle-section{
     flex: 1;
@@ -110,4 +110,28 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+}
+.tool-tip{
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.info-button .tool-tip{
+  bottom: -15px;
+  left: 50px;
+}
+.hamburger-button .tool-tip{
+  bottom: -15px;
+  left: -5px;
+}
+.info-button:hover .tool-tip,
+.hamburger-button:hover .tool-tip{
+  opacity: 1;
 }
