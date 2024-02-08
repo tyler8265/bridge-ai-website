@@ -1,5 +1,6 @@
 import './App.css';
-import MapComponent from './MapComponent';
+import MapComponent from './components/MapComponent';
+import About from './components/AboutProject';
 
 function App() {
   return (
