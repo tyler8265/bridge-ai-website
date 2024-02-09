@@ -3,6 +3,7 @@ import './Navbar.css';
 import hamburger from './icons/burger-menu.svg';
 import info from './icons/information-icon.svg';
 import search from './icons/magnifying-glass.svg';
+import './HowTo.css'
 
 const Navbar = () => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
@@ -15,6 +16,9 @@ const Navbar = () => {
     const closeMenu = () => {
         setIsDropDownVisible(false);
     }
+    const Modal = ({isOpen, onClose}) => {
+        if (!isOpen) return null;
+    }
 
     return (
         <div className='Navbar'>
@@ -24,11 +28,11 @@ const Navbar = () => {
                         <img src={hamburger} className='hamburger-icon' alt='hamburger' />
                     </button>
                 </div>
-                <div className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
-                    <div className='how-to-page'><button className='how-to-page-button'>How-To-Page</button></div>
-                    <div className='bridge-list'><button className='bridge-list-button'>Bridge List</button></div>
-                    <div className='log-out'><button className='log-out-button'><a href='/LoginPage' className='links'>Log Out</a></button></div>
-                </div>
+                <ul className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
+                    <li className='how-to-page'><a>How-To-Page</a></li>
+                    <li className='bridge-list'><a >Bridge List</a></li>
+                    <li className='log-out'><a href='/LoginPage' className='links'>Log Out</a></li>
+                </ul>
                 <div>
                     <button className='info-button'>
                         <img src={info} className='info-icon' alt='info' onClick={closeMenu} />
