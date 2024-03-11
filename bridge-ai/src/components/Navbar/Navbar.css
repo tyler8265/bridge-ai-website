@@ -133,6 +133,7 @@
     transition: opacity 0.15s;
     pointer-events: none;
     white-space: nowrap;
+    margin-left: 18px;
 }
 .info-button .tool-tip{
   bottom: -15px;

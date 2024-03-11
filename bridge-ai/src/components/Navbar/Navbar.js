@@ -47,7 +47,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='middle-section'>
-                <input className='search-box' placeholder='Search Here...' />
+                <input className='search-box' placeholder='Search Bridge ID Here...' />
                 <button className='search-button'>
                     <img src={search} className='search-icon' alt='search' />
                 </button>
