@@ -10,21 +10,10 @@ import {
     Route,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<App/>,
-    },
-    {
-        path: "LoginPage",
-        element: <LoginPage/>,
-      }
-  ]);
-
 const root = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <App />
   </React.StrictMode>,
   root
 );

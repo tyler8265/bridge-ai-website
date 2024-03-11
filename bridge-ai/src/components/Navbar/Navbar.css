@@ -15,8 +15,9 @@
   height: 40px;
 }
 .info-icon{
-  width: 29px;
-  height: 40px;
+  width: 32px;
+  height: 35px;
+  margin-top: 2px;
 }
 .search-box{
     flex: 1;
@@ -87,7 +88,7 @@
   position: absolute;
   background-color: white;
   top: 0; /* Changed initial top value */
-  left: 20px;
+  left: 30px;
   transform: translateY(-100%); /* Adjusted transform property */
   padding: 0px;
   transition: transform 0.4s;
@@ -95,7 +96,7 @@
 
 .show-drop-down-menu {
   visibility: visible;
-  transform: translateY(50%); /* Adjusted transform property */
+  transform: translateY(30%); /* Adjusted transform property */
   opacity: 1;
 }
 
@@ -104,16 +105,22 @@
   opacity: 1;
 }
 
-.how-to-page-button,
-.bridge-list-button,
-.log-out-button {
+.how-to-page-link,
+.bridge-list-link,
+.log-out-link {
   background-color: #f1f1f1;
   max-width: 160px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
-  padding: 10px;
+  padding: 8px;
   border: none;
   cursor: pointer;
+  list-style-type: none;
+}
+.how-to-page-link:hover,
+.bridge-list-link:hover,
+.log-out-link:hover {
+  background-color: rgb(205, 205, 205);
 }
 .tool-tip{
     position: absolute;
@@ -139,7 +146,7 @@
 .hamburger-button:hover .tool-tip{
   opacity: 1;
 }
-.links{
-  text-decoration: none;
+.link{
   color: black;
+  text-decoration: none;
 }

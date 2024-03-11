@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
 import './Navbar.css';
 import hamburger from './icons/burger-menu.svg';
-import info from './icons/information-icon.svg';
+import info from './icons/2059447.png';
 import search from './icons/magnifying-glass.svg';
 import './HowTo.css'
+import { Link, useLocation } from 'react-router-dom';
+import LoginPage from '../LoginPage/LoginPage';
 
 const Navbar = () => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
@@ -19,8 +21,11 @@ const Navbar = () => {
     const Modal = ({isOpen, onClose}) => {
         if (!isOpen) return null;
     }
+    const location = useLocation();
 
-    return (
+    const renderNavbar = location.pathname ==='/Main'
+
+    return renderNavbar ? (
         <div className='Navbar'>
             <div className='left-section'>
                 <div>
@@ -29,14 +34,15 @@ const Navbar = () => {
                     </button>
                 </div>
                 <ul className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
-                    <li className='how-to-page'><a>How-To-Page</a></li>
-                    <li className='bridge-list'><a >Bridge List</a></li>
-                    <li className='log-out'><a href='/LoginPage' className='links'>Log Out</a></li>
+                    <li className='how-to-page-link'><Link to ='/how-to-page' className='link'>How-To Page</Link></li>
+                    <li className='bridge-list-link'><Link to ='/About' className='link'>About</Link></li>
+                    <li className='bridge-list-link'><Link to ='' className='link'>Bridge List</Link></li>
+                    <li className='log-out-link'><Link to='/' className='link'>Log Out</Link></li>
                 </ul>
                 <div>
                     <button className='info-button'>
-                        <img src={info} className='info-icon' alt='info' onClick={closeMenu} />
-                        <div className='tool-tip'>About Page</div>
+                        <Link to='/FAQs'><img src={info} className='info-icon' alt='info' onClick={closeMenu} /></Link>
+                        <div className='tool-tip'>FAQs</div>
                     </button>
                 </div>
             </div>
@@ -48,7 +54,7 @@ const Navbar = () => {
             </div>
             <div className='right-section'></div>
         </div>
-    );
+    ): null;
 }
 export default Navbar
 
