@@ -7,23 +7,40 @@ import './HowTo.css'
 import { Link, useLocation } from 'react-router-dom';
 import LoginPage from '../LoginPage/LoginPage';
 
-const Navbar = () => {
+const Navbar = ({idToStructure}) => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
+    const [isDropDown2Visible, setIsDropDown2Visible] = useState(false); // State for drop-down-menu2
     const dropDownMenuRef = useRef(null);
+    const [searchInput, setSearchInput] = useState('');
 
     const toggleMenu = () => {
         setIsDropDownVisible(!isDropDownVisible);
     }
 
+    const toggleDropDown2 = (value) => { 
+        setIsDropDown2Visible(value);
+    }
+
     const closeMenu = () => {
         setIsDropDownVisible(false);
     }
+
+    const handleInputChange = (event) => {
+        setSearchInput(event.target.value);
+        setIsDropDown2Visible(event.target.value.trim().length > 0);
+    }
+
     const Modal = ({isOpen, onClose}) => {
         if (!isOpen) return null;
     }
+
     const location = useLocation();
 
     const renderNavbar = location.pathname ==='/Main'
+
+    const filterKeys = () => {
+        return Object.keys(idToStructure).filter(key => key.includes(searchInput)).slice(0, 10);
+    };
 
     return renderNavbar ? (
         <div className='Navbar'>
@@ -47,14 +64,20 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='middle-section'>
-                <input className='search-box' placeholder='Search Bridge ID Here...' />
+                <input className='search-box' placeholder='Search Bridge ID Here...' onChange={handleInputChange} />
                 <button className='search-button'>
                     <img src={search} className='search-icon' alt='search' />
                 </button>
+                <ul className={`drop-down-menu2 ${isDropDown2Visible ? 'show-drop-down-menu2' : 'hide-drop-down-menu2'}`} ref={dropDownMenuRef}>
+                    {filterKeys().map((key, index) => (
+                        <li key={index} className='search-link'>
+                            <Link to={`/details/${key}`} className='link'>{idToStructure[key]}</Link>
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className='right-section'></div>
         </div>
     ): null;
 }
-export default Navbar
-
+export default Navbar;
