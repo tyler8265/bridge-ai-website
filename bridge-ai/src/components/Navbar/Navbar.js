@@ -1,24 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import hamburger from './icons/burger-menu.svg';
 import info from './icons/2059447.png';
 import search from './icons/magnifying-glass.svg';
-import './HowTo.css'
 import { Link, useLocation } from 'react-router-dom';
-import LoginPage from '../LoginPage/LoginPage';
 
-const Navbar = ({idToStructure}) => {
+const Navbar = ({ idToStructure, structureToID }) => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
-    const [isDropDown2Visible, setIsDropDown2Visible] = useState(false); // State for drop-down-menu2
-    const dropDownMenuRef = useRef(null);
     const [searchInput, setSearchInput] = useState('');
 
     const toggleMenu = () => {
         setIsDropDownVisible(!isDropDownVisible);
-    }
-
-    const toggleDropDown2 = (value) => { 
-        setIsDropDown2Visible(value);
     }
 
     const closeMenu = () => {
@@ -27,20 +19,35 @@ const Navbar = ({idToStructure}) => {
 
     const handleInputChange = (event) => {
         setSearchInput(event.target.value);
-        setIsDropDown2Visible(event.target.value.trim().length > 0);
-    }
-
-    const Modal = ({isOpen, onClose}) => {
-        if (!isOpen) return null;
     }
 
     const location = useLocation();
+    const renderNavbar = location.pathname === '/Main';
+    const ourStructures = Object.keys(structureToID.CT).map(key => key.trim());
 
-    const renderNavbar = location.pathname ==='/Main'
+    const matchStructNums = (matchKey, structureNumsList) => {
+        return structureNumsList.filter(key => key.includes(matchKey));
+    }
+
+    const trimResults = (results, maxOut) => {
+        return results.slice(0, maxOut);
+    }
 
     const filterKeys = () => {
-        return Object.keys(idToStructure).filter(key => key.includes(searchInput)).slice(0, 10);
-    };
+        const searchNumbers = searchInput.match(/\d+/g);
+        if (!searchNumbers) return []; // If no numbers found, return empty array
+
+        const searchString = searchNumbers.join('');
+        const matchedResults = matchStructNums(searchString, ourStructures);
+        const trimmed = trimResults(matchedResults, 10);
+
+        // Map the trimmed results to include both the ID and the corresponding structure
+        return trimmed.map(key => ({
+            id: key,
+            structure: idToStructure[key]
+        }));
+    }
+
 
     return renderNavbar ? (
         <div className='Navbar'>
@@ -50,10 +57,10 @@ const Navbar = ({idToStructure}) => {
                         <img src={hamburger} className='hamburger-icon' alt='hamburger' />
                     </button>
                 </div>
-                <ul className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`} ref={dropDownMenuRef}>
-                    <li className='how-to-page-link'><Link to ='/how-to-page' className='link'>How-To Page</Link></li>
-                    <li className='bridge-list-link'><Link to ='/About' className='link'>About</Link></li>
-                    <li className='bridge-list-link'><Link to ='' className='link'>Bridge List</Link></li>
+                <ul className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`}>
+                    <li className='how-to-page-link'><Link to='/how-to-page' className='link'>How-To Page</Link></li>
+                    <li className='bridge-list-link'><Link to='/About' className='link'>About</Link></li>
+                    <li className='bridge-list-link'><Link to='' className='link'>Bridge List</Link></li>
                     <li className='log-out-link'><Link to='/' className='link'>Log Out</Link></li>
                 </ul>
                 <div>
@@ -68,16 +75,17 @@ const Navbar = ({idToStructure}) => {
                 <button className='search-button'>
                     <img src={search} className='search-icon' alt='search' />
                 </button>
-                <ul className={`drop-down-menu2 ${isDropDown2Visible ? 'show-drop-down-menu2' : 'hide-drop-down-menu2'}`} ref={dropDownMenuRef}>
-                    {filterKeys().map((key, index) => (
+                <ul className={`drop-down-menu2 ${searchInput && filterKeys().length > 0 ? 'show-drop-down-menu2' : 'hide-drop-down-menu2'}`}>
+                    {filterKeys().map((item, index) => (
                         <li key={index} className='search-link'>
-                            <Link to={`/details/${key}`} className='link'>{idToStructure[key]}</Link>
+                            <Link to={`/bridge-details/${item.id}`} className='link'>{item.id}</Link>
                         </li>
                     ))}
                 </ul>
             </div>
             <div className='right-section'></div>
         </div>
-    ): null;
+    ) : null;
 }
+
 export default Navbar;
