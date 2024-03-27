@@ -11,7 +11,7 @@ import idToStructure from './Original_data_dict/id_to_structure.json';
 import structureToID from './Original_data_dict/structure_to_id.json';
 import BridgeDetailsTemplate from './components/BridgeData/BridgeDetailsTemplate';
 
-function App() {
+let App = () => {
     return (
         <BrowserRouter>
             <div className="App">

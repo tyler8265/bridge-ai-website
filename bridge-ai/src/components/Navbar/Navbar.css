@@ -149,7 +149,8 @@
 }
 .how-to-page-link:hover,
 .bridge-list-link:hover,
-.log-out-link:hover {
+.log-out-link:hover,
+.search-link:hover {
   background-color: rgb(205, 205, 205);
 }
 .tool-tip{

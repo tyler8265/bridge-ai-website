@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
 import hamburger from './icons/burger-menu.svg';
 import info from './icons/2059447.png';
@@ -8,6 +8,21 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar = ({ idToStructure, structureToID }) => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
     const [searchInput, setSearchInput] = useState('');
+    const searchRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                setIsDropDownVisible(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setIsDropDownVisible(!isDropDownVisible);
@@ -48,7 +63,6 @@ const Navbar = ({ idToStructure, structureToID }) => {
         }));
     }
 
-
     return renderNavbar ? (
         <div className='Navbar'>
             <div className='left-section'>
@@ -71,7 +85,7 @@ const Navbar = ({ idToStructure, structureToID }) => {
                 </div>
             </div>
             <div className='middle-section'>
-                <input className='search-box' placeholder='Search Bridge ID Here...' onChange={handleInputChange} />
+                <input ref={searchRef} className='search-box' placeholder='Search Bridge ID Here...' onChange={handleInputChange} />
                 <button className='search-button'>
                     <img src={search} className='search-icon' alt='search' />
                 </button>
