@@ -38,10 +38,10 @@ const Navbar = ({ idToStructure, structureToID }) => {
 
     const location = useLocation();
     const renderNavbar = location.pathname === '/Main';
-    const ourStructures = Object.keys(structureToID.CT).map(key => key.trim());
+    const ourStructures = Object.values(structureToID.CT).map(value => value);
 
     const matchStructNums = (matchKey, structureNumsList) => {
-        return structureNumsList.filter(key => key.includes(matchKey));
+        return structureNumsList.filter(key => String(key).includes(matchKey));
     }
 
     const trimResults = (results, maxOut) => {
