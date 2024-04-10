@@ -5,7 +5,7 @@ import info from './icons/2059447.png';
 import search from './icons/magnifying-glass.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ idToStructure, structureToID }) => {
+const Navbar = ({ idToStructure, structureToID, bridgeData }) => {
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
     const [searchInput, setSearchInput] = useState('');
     const searchRef = useRef(null);
@@ -56,8 +56,9 @@ const Navbar = ({ idToStructure, structureToID }) => {
         const matchedResults = matchStructNums(searchString, ourStructures);
         const trimmed = trimResults(matchedResults, 10);
 
+        const filteredResults = trimmed.filter(key => bridgeData.hasOwnProperty(key));
         // Map the trimmed results to include both the ID and the corresponding structure
-        return trimmed.map(key => ({
+        return filteredResults.map(key => ({
             id: key,
             structure: idToStructure[key]
         }));
