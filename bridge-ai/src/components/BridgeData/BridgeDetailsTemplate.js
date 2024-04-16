@@ -5,7 +5,7 @@ import exit from './x-symbol.svg';
 import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 
-const BridgeDetailsTemplate = ({ bridgeData, chartData }) => {
+const BridgeDetailsTemplate = ({ bridgeData }) => {
     const { bridgeId } = useParams();
     const [showTable, setShowTable] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false); // New state to control dropdown visibility

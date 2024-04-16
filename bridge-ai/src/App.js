@@ -17,7 +17,7 @@ import { CategoryScale } from 'chart.js';
 Chart.register(CategoryScale);
 
 const App = () => {
-    const [chartData, setChartData] = useState({
+    const [chartData] = useState({
         labels: [],
         datasets: [
           {
