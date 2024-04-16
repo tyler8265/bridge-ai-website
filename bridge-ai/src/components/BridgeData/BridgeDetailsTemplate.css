@@ -10,11 +10,90 @@
   left: 0;
   background-color: grey;
 }
-.body-info {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
+.section{
+  margin-left: 40%;
+  font-size: 25px;
 }
+.bridge-view-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+.bridge-view-buttons button {
+  cursor: pointer;
+}
+.table-container {
+  overflow-x: auto;
+  margin-top: 5px;
+  width: 50%;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-container th, .table-container td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.table-container th {
+  background-color: #f2f2f2;
+}
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.data-display-box {
+  position: fixed;
+  top: 50%; /* Position in the middle vertically */
+  right: 0;
+  margin-right: 5px;
+  transform: translateY(-50%); /* Centering trick */
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  font-family: Arial, sans-serif; /* Specify font family */
+  color: #333; /* Text color */
+}
+
+.data-display-box div {
+  margin-bottom: 10px; /* Add space between each data item */
+}
+
+.data-display-box div:last-child {
+  margin-bottom: 0; /* Remove margin for the last data item */
+}
+
+.data-display-box div span {
+  font-weight: bold; /* Make data label bold */
+  color: #555; /* Dim the color of the label */
+}
+.chart-container {
+  width: 600px; /* Adjust width as needed */
+  margin: auto; /* Center the chart container horizontally */
+  padding: 20px; /* Add padding for spacing */
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  top: 50%;
+  margin-top: 150px;
+}
+
+/* Style the heading */
+.chart-container h2 {
+  margin-top: 10px; /* Add some space below the heading */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%; /* Make the chart container full width on smaller screens */
+  }
+}
+
+

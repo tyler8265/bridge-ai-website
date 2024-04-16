@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './Navbar.css';
 import hamburger from './icons/burger-menu.svg';
 import info from './icons/2059447.png';
@@ -10,19 +10,7 @@ const Navbar = ({ idToStructure, structureToID, bridgeData }) => {
     const [searchInput, setSearchInput] = useState('');
     const searchRef = useRef(null);
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
-                setIsDropDownVisible(false);
-            }
-        };
 
-        document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     const toggleMenu = () => {
         setIsDropDownVisible(!isDropDownVisible);
@@ -75,7 +63,6 @@ const Navbar = ({ idToStructure, structureToID, bridgeData }) => {
                 <ul className={`drop-down-menu ${isDropDownVisible ? 'show-drop-down-menu' : 'hide-drop-down-menu'}`}>
                     <li className='how-to-page-link'><Link to='/how-to-page' className='link'>How-To Page</Link></li>
                     <li className='bridge-list-link'><Link to='/About' className='link'>About</Link></li>
-                    <li className='bridge-list-link'><Link to='' className='link'>Bridge List</Link></li>
                     <li className='log-out-link'><Link to='/' className='link'>Log Out</Link></li>
                 </ul>
                 <div>
