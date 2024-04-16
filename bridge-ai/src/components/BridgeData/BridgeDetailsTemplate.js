@@ -473,33 +473,255 @@ const BridgeDetailsTemplate = ({ bridgeData, chartData }) => {
                     </div>
                 )}
                 {showCustomContents.customContent2 && (
-                    <div className="custom-content">
-                        {/* Custom content 2 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Substructure Condition</h2>
+                            <Line
+                                data={{
+                                    labels: [1992, 1997, 2002, 2007, 2012, 2017, 2022],
+                                    datasets: [
+                                        {
+                                            label: "Substructure Condition",
+                                            data: bridgeData[bridgeId]["sequential_data"][11], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Substructure Condition'
+                                            },
+                                            min: 0,
+                                            max: 10,
+                                            ticks: {
+                                                stepSize: 1
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 {showCustomContents.customContent3 && (
-                    <div className="custom-content">
-                        {/* Custom content 3 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Superstructure Condition</h2>
+                            <Line
+                                data={{
+                                    labels: [1992, 1997, 2002, 2007, 2012, 2017, 2022],
+                                    datasets: [
+                                        {
+                                            label: "Superstructure Condition",
+                                            data: bridgeData[bridgeId]["sequential_data"][10], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Superstructure Condition'
+                                            },
+                                            min: 0,
+                                            max: 10,
+                                            ticks: {
+                                                stepSize: 1
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 {showCustomContents.customContent4 && (
-                    <div className="custom-content">
-                        {/* Custom content 4 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Channel Condition</h2>
+                            <Line
+                                data={{
+                                    labels: [1992, 1997, 2002, 2007, 2012, 2017, 2022],
+                                    datasets: [
+                                        {
+                                            label: "Channel Condition",
+                                            data: bridgeData[bridgeId]["sequential_data"][2], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Channel Condition'
+                                            },
+                                            min: 0,
+                                            max: 10,
+                                            ticks: {
+                                                stepSize: 1
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 {showCustomContents.customContent5 && (
-                    <div className="custom-content">
-                        {/* Custom content 5 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Average Daily Traffic</h2>
+                            <Line
+                                data={{
+                                    labels: [1992, 1997, 2002, 2007, 2012, 2017, 2022],
+                                    datasets: [
+                                        {
+                                            label: "Average Daily Traffic",
+                                            data: bridgeData[bridgeId]["sequential_data"][0], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Deck Condition'
+                                            },
+                                            min: 0,
+                                            max: 200000,
+                                            ticks: {
+                                                stepSize: 10000
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 {showCustomContents.customContent6 && (
-                    <div className="custom-content">
-                        {/* Custom content 6 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Year Average Daily Traffic</h2>
+                            <Line
+                                data={{
+                                    labels: bridgeData[bridgeId]["sequential_data"][1],
+                                    datasets: [
+                                        {
+                                            label: "Year ADT",
+                                            data: bridgeData[bridgeId]["sequential_data"][0], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year ADT'
+                                            },
+                                            min: 0,
+                                            max: 200000,
+                                            ticks: {
+                                                stepSize: 10000
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 {showCustomContents.customContent7 && (
-                    <div className="custom-content">
-                        {/* Custom content 7 */}
+                    <div className='custom-content'>
+                        <div className="chart-container">
+                            <h2 style={{ textAlign: "center" }}>Age</h2>
+                            <Line
+                                data={{
+                                    labels: [1992, 1993, 1994, 1995, 1996, 1997, 1998],
+                                    datasets: [
+                                        {
+                                            label: "Year ADT",
+                                            data: bridgeData[bridgeId]["sequential_data"][8], // Using the 10th array for deck condition
+                                            fill: false,
+                                            borderColor: "rgb(75, 192, 192)",
+                                            tension: 0.1
+                                        }
+                                    ]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Year'
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Age'
+                                            },
+                                            min: 0,
+                                            max: 50,
+                                            ticks: {
+                                                stepSize: 5
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 )}
                 <div className="data-display-box">
