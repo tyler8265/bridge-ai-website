@@ -747,8 +747,8 @@ const BridgeDetailsTemplate = ({ bridgeData }) => {
                     </div>
                 )}
                 <div className="data-display-box">
-                    <div>Longitude: {bridgeData[bridgeId]['Location'][3]}</div>
-                    <div>Latitude: {bridgeData[bridgeId]['Location'][4]}</div>
+                    <div>Longitude: {Number(bridgeData[bridgeId]['Location'][3]).toFixed(2)}</div>
+                    <div>Latitude: {Number(bridgeData[bridgeId]['Location'][4]).toFixed(2)}</div>
                 </div>
             </div>
         </div>
