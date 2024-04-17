@@ -21,6 +21,17 @@ const BridgeDetailsTemplate = ({ bridgeData }) => {
 
     const handleButtonClick = () => {
         setShowTable(true);
+        // Hide all custom content when Bridge Tabular Features button is clicked
+        setShowCustomContents({
+            customContent1: false,
+            customContent2: false,
+            customContent3: false,
+            customContent4: false,
+            customContent5: false,
+            customContent6: false,
+            customContent7: false,
+        });
+        setShowDropdown(false); // Also hide the dropdown
     };
 
     const handleSequentialButtonClick = () => {
@@ -31,7 +42,18 @@ const BridgeDetailsTemplate = ({ bridgeData }) => {
     const handlePredictionButtonClick = () => {
         setShowTable(false);
         setShowDropdown(false);
+        // Hide all custom content when Bridge AI Prediction button is clicked
+        setShowCustomContents({
+            customContent1: false,
+            customContent2: false,
+            customContent3: false,
+            customContent4: false,
+            customContent5: false,
+            customContent6: false,
+            customContent7: false,
+        });
     };
+
 
     const handleDropdownButtonClick = (contentKey) => {
         setShowCustomContents((prev) => {
