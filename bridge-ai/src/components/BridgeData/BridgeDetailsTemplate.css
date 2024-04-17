@@ -1,3 +1,11 @@
+/* Base settings for the overall aesthetics */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
 .header {
   height: 55px;
   display: flex;
@@ -8,24 +16,45 @@
   top: 0;
   right: 0;
   left: 0;
-  background-color: grey;
+  background-color: #607d8b; /* Softer color */
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.section{
+
+.section {
   margin-left: 40%;
   font-size: 25px;
+  font-weight: bold;
 }
-.bridge-view-buttons{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 55px;
+
+.bridge-view-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 55px;
 }
+
 .bridge-view-buttons button {
   cursor: pointer;
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
+
+.bridge-view-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
 .table-container {
   overflow-x: auto;
-  margin-top: 5px;
-  width: 50%;
+  margin-top: 65px;
+  width: 60%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .table-container table {
@@ -36,64 +65,70 @@
 .table-container th, .table-container td {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 12px;
 }
 
 .table-container th {
-  background-color: #f2f2f2;
+  background-color: #e0f7fa;
 }
+
 .content-wrapper {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  padding: 20px;
 }
+
 .data-display-box {
   position: fixed;
-  top: 50%; /* Position in the middle vertically */
+  top: 60%;
   right: 0;
-  margin-right: 5px;
-  transform: translateY(-50%); /* Centering trick */
-  width: 30%;
-  background-color: #f0f0f0;
+  margin-right: 20px;
+  transform: translateY(-50%);
+  width: 25%;
+  background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-  font-family: Arial, sans-serif; /* Specify font family */
-  color: #333; /* Text color */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 16px;
 }
 
-.data-display-box div {
-  margin-bottom: 10px; /* Add space between each data item */
-}
-
-.data-display-box div:last-child {
-  margin-bottom: 0; /* Remove margin for the last data item */
-}
-
-.data-display-box div span {
-  font-weight: bold; /* Make data label bold */
-  color: #555; /* Dim the color of the label */
-}
 .chart-container {
-  width: 600px; /* Adjust width as needed */
-  margin: auto; /* Center the chart container horizontally */
-  padding: 20px; /* Add padding for spacing */
-  border: 1px solid #ccc; /* Add a border for visual separation */
-  top: 50%;
-  margin-top: 150px;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }
 
-/* Style the heading */
 .chart-container h2 {
-  margin-top: 10px; /* Add some space below the heading */
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #555;
 }
 
 /* Responsive styling */
 @media (max-width: 768px) {
-  .chart-container {
-    width: 100%; /* Make the chart container full width on smaller screens */
+  .header .section, .bridge-view-buttons {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .table-container, .chart-container, .data-display-box {
+    width: 95%;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .bridge-view-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bridge-view-buttons button {
+    width: 100%;
+    margin-top: 10px;
   }
 }
-
-
